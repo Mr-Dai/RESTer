@@ -1,4 +1,4 @@
-package com.rester.annotations;
+package com.rester.annotation;
 
 
 import java.lang.annotation.ElementType;
@@ -8,10 +8,13 @@ import java.lang.annotation.Target;
 
 /**
  * Marks a Java POJO as REST resource.
+ *
+ * @author Robert Peng
+ * @since 0.1
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)
-public @interface Resource {
+public @interface RestResource {
 
     /**
      * Name of the REST resource. Default to be the name of the annotated class.

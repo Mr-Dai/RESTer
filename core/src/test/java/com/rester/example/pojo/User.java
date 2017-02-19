@@ -1,13 +1,13 @@
 package com.rester.example.pojo;
 
-import com.rester.annotations.Attribute;
-import com.rester.annotations.Id;
-import com.rester.annotations.Resource;
+import com.rester.annotation.Attribute;
+import com.rester.annotation.Id;
+import com.rester.annotation.RestResource;
 
 /**
  * Example user Java Bean with private fields, full-fledged constructors, getters and setters.
  */
-@Resource
+@RestResource
 public class User {
 
     @Id @Attribute private String username;
@@ -27,18 +27,11 @@ public class User {
 
     /* Getters and Setters */
     public String getUsername() { return username; }
-
     public void setUsername(String username) { this.username = username; }
-
     public String getPassword() { return password; }
-
     public void setPassword(String password) { this.password = password; }
-
     public String getNickname() { return nickname; }
-
     public void setNickname(String nickname) { this.nickname = nickname; }
-
     public String getPhoneNum() { return phoneNum; }
-
     public void setPhoneNum(String phoneNum) { this.phoneNum = phoneNum; }
 }

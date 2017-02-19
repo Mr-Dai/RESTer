@@ -1,15 +1,15 @@
 package com.rester.example.pojo;
 
-import com.rester.annotations.Attribute;
-import com.rester.annotations.Id;
-import com.rester.annotations.Resource;
+import com.rester.annotation.Attribute;
+import com.rester.annotation.Id;
+import com.rester.annotation.RestResource;
 
 import java.time.LocalDate;
 
 /**
  * Example person information POJO with public fields.
  */
-@Resource
+@RestResource
 public class Person {
 
     @Id @Attribute public String id;

@@ -1,0 +1,5 @@
+dependencies {
+    compile project(':rester-core')
+
+    compile group: 'org.eclipse.jetty.aggregate', name: 'jetty-all', version: '9.4.0.v20161208'
+}

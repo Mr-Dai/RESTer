@@ -1,18 +1,40 @@
-group 'com.rester'
-version '0.1'
+allprojects {
+    group 'com.rester'
+    version '0.1'
 
-apply plugin: 'java'
+    apply plugin: 'jacoco'
 
-repositories {
-    mavenCentral()
+    repositories {
+        mavenCentral()
+    }
 }
 
-dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.12'
+subprojects {
+    apply plugin: 'java'
 }
 
 /** Configuration for Gradle Wrapper */
 task wrapper(type: Wrapper) {
     gradleVersion = '3.3'
     distributionType = Wrapper.DistributionType.ALL
+}
+
+/** Task for generating code-coverage report using Jacoco */
+task codeCoverageReport(type: JacocoReport) {
+    executionData fileTree(project.rootDir.absolutePath).include("**/build/jacoco/*.exec")
+
+    subprojects.each {
+        sourceSets it.sourceSets.main
+    }
+
+    reports {
+        xml.enabled = true
+        html.enabled = true
+        html.destination = "${buildDir}/reports/jacoco" as File
+        csv.enabled = false
+    }
+}
+
+codeCoverageReport.dependsOn {
+    subprojects*.test
 }
